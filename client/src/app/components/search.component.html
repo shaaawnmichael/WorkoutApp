@@ -1,0 +1,14 @@
+<h2>List of exercises with <code style="text-transform:uppercase" >{{input}}</code>:</h2>
+
+<table border="3">
+	<thead>
+		<tr>
+      <th>Name of workout</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let e of exercise" [routerLink]="['/exercise', e.id]">
+      <td style="text-transform:uppercase" >{{ e.name }}</td>
+		</tr>
+	</tbody>
+</table>
