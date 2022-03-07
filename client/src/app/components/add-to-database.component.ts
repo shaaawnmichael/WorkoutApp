@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ExerciseService } from '../exercise.service';
-import { ExerciseAdd, Exercises, Message } from '../models';
+import { ExerciseAdd, Exercises, Message, User } from '../models';
 
 @Component({
   selector: 'app-add-to-database',
@@ -14,6 +14,7 @@ export class AddToDatabaseComponent implements OnInit {
   form!:FormGroup
   exercises!: Exercises
   message!: Message
+  username!: User
 
   constructor(private fb: FormBuilder, private exSvc : ExerciseService, private route: Router) { }
 

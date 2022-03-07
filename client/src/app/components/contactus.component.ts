@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ExerciseService } from '../exercise.service';
-import { ContactUs } from '../models';
+import { ContactUs, User } from '../models';
 
 @Component({
   selector: 'app-contactus',
@@ -12,6 +12,7 @@ import { ContactUs } from '../models';
 export class ContactusComponent implements OnInit {
 
   form!:FormGroup
+  username!: User
 
 
   constructor(private fb: FormBuilder, private exSvc : ExerciseService, private route: Router) { }

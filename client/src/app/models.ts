@@ -41,3 +41,24 @@ export interface ContactUs {
   enquiry: string;
 }
 
+export interface newUser{
+  username: string
+  password: string
+}
+
+export interface User{
+  username: string
+  password: string
+}
+
+export interface Profile extends Exercise{
+  username: string
+  id: number
+  bodyPart: string;
+  equipment: string;
+  gifUrl: string;
+  name: string;
+  target: string;
+
+}
+

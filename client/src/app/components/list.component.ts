@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ExerciseService } from '../exercise.service';
-import { Exercise, Exercises } from '../models';
+import { Exercise, Exercises, User } from '../models';
 
 @Component({
   selector: 'app-list',
@@ -13,6 +13,7 @@ export class ListComponent implements OnInit {
   exercises: Exercises[] = []
   exercise: Exercise[] = []
   input: any
+  //username!: User
 
   constructor( private exSvc: ExerciseService, private router: Router, private ActivatedRoute: ActivatedRoute) { }
 

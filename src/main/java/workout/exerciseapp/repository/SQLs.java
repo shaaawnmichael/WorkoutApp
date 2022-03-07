@@ -12,14 +12,49 @@ public interface SQLs {
 	
 	public static final String SQL_SEARCH = 
 			"SELECT * FROM exercises WHERE MATCH (exercise_name, equipment, body_part, exercise_target) AGAINST (?)";
-			//"select * from exercises where exercise_name like ? or equipment like ? or body_part like ? or exercise_target like ?";
-			//"select * from exercises where exercise_name like '%?%' or equipment like '%?%' or body_part like '%?%' or exercise_target like '%?%'";
+			
 	public static final String SQL_ADD_EXERCISE = 
 			"insert into exercises (body_part, equipment, gif_url, exercise_name, exercise_target) VALUES (?, ?, ?, ?, ?)";
 
-/* 	public static final String SQL_GET_USER_BY_USERNAME =
-			"select count(*) user_count from user where username = ?";
+	public static final String SQL_ADD_USERS =
+			"insert into users (username, password) values (?, sha1(?))";
+	
+/*  	public static final String SQL_CREATE_USER_PROFILE =
+				  "create table if not exists ? (\n"
+				+ "body_part varchar(64) not null,\n"
+				+ "equipment varchar(64) not null, \n"
+				+ "gif_url varchar(64) not null, \n"
+				+ "exercise_name varchar(128) not null, \n"
+				+ "exercise_target varchar(64) not null, \n"
+				+ "uid int auto_increment not null, \n"
+				+ "primary key(uid), \n"
+				
+				+ "foreign key(uid) \n"
+				+ "references users(userid) \n"
+				+ "ON DELETE CASCADE \n"
+				+ "ON UPDATE RESTRICT\n"
+			+ ");";  */
 
-	public static final String SQL_ADD_NEW_TASK = 
-			"insert into task(username, task_name, priority, due_date) values (?, ?, ?, ?)"; */
+	public static final String SQL_GET_USER_PROFILE =
+			"select * from users_profile where username = ?";
+
+	public static final String SQL_GET_ALL_PROFILES =
+			"select * from users_profile";
+
+/* 	public static final String SQL_CREATE_USER_PROFILE = 
+				  "create table if not exists " + username + " (\n"
+				+ "body_part varchar(64) not null,\n"
+				+ "equipment varchar(64) not null, \n"
+				+ "gif_url varchar(64) not null, \n"
+				+ "exercise_name varchar(128) not null, \n"
+				+ "exercise_target varchar(64) not null, \n"
+				+ "uid int auto_increment not null, \n"
+				+ "primary key(uid), \n"
+				
+				+ "foreign key(uid) \n"
+				+ "references users(userid) \n"
+				+ "ON DELETE CASCADE \n"
+				+ "ON UPDATE RESTRICT\n"
+			+ ");"; */
+
 }

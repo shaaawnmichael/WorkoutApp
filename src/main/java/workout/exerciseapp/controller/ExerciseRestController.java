@@ -28,6 +28,7 @@ import workout.exerciseapp.model.ExercisesAdd;
 import workout.exerciseapp.repository.ExerciseRepo;
 import workout.exerciseapp.services.EmailService;
 
+
 @RestController
 @RequestMapping(path="/api", produces=MediaType.APPLICATION_JSON_VALUE)
 public class ExerciseRestController {

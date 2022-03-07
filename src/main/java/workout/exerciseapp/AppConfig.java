@@ -15,10 +15,10 @@ public class AppConfig implements WebMvcConfigurer {
 	@Autowired
 	private JwtFilter myfilter;
 
-	@Override
+    @Override
 	public void addCorsMappings(CorsRegistry reg) {
 		reg.addMapping("/api/**");
-	}
+	}     
 
 	@Bean
 	public FilterRegistrationBean<JwtFilter> registerJwtFilter(JwtFilter filter) {

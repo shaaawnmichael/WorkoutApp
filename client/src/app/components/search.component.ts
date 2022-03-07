@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ExerciseService } from '../exercise.service';
-import { Exercise, Exercises } from '../models';
+import { Exercise, Exercises, User } from '../models';
 
 @Component({
   selector: 'app-search',
@@ -15,6 +15,7 @@ export class SearchComponent implements OnInit {
   exercises: Exercises[] = []
   id: any
   e = !null;
+  username!: User
 
   constructor(private exSvc: ExerciseService, private router: Router, private ActivatedRoute: ActivatedRoute) { }
 

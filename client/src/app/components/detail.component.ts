@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ExerciseService } from '../exercise.service';
-import { Exercise, Exercises } from '../models';
+import { Exercise, Exercises, User } from '../models';
 
 @Component({
   selector: 'app-detail',
@@ -13,6 +13,7 @@ export class DetailComponent implements OnInit {
   exercise: Exercise[] = []
   exercises: Exercises[] = []
   id: any
+  username!: User
 
   constructor(private exSvc : ExerciseService, private router: Router, private ActivatedRoute: ActivatedRoute) { }
 

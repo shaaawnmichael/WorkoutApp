@@ -14,6 +14,9 @@ import { AddToDatabaseComponent } from './components/add-to-database.component';
 import { LoginComponent } from './UserComponents/login.component';
 import { SignupComponent } from './UserComponents/signup.component';
 import { ContactusComponent } from './components/contactus.component';
+import { UserProfileComponent } from './UserComponents/user-profile.component';
+import { TokenStorageService } from './_services/token-storage.service';
+import { authInterceptorProviders } from './_services/auth.service';
 
 
 const appRoutes: Routes = [
@@ -24,6 +27,7 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'contactus', component: ContactusComponent },
+  { path: 'profile', component: UserProfileComponent },
 	{ path: '**', redirectTo: '/', pathMatch: 'full' }
 ]
 
@@ -37,6 +41,7 @@ const appRoutes: Routes = [
     LoginComponent,
     SignupComponent,
     ContactusComponent,
+    UserProfileComponent,
 
   ],
   imports: [
@@ -45,7 +50,7 @@ const appRoutes: Routes = [
     AppRoutingModule,
     FormsModule, ReactiveFormsModule
   ],
-  providers: [ExerciseService],
+  providers: [ExerciseService, TokenStorageService, authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
