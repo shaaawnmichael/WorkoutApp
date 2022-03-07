@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ExerciseService } from '../exercise.service';
-import { Profile, User } from '../models';
+import { MyProfile, Profile, User } from '../models';
 import { TokenStorageService } from '../_services/token-storage.service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -11,20 +11,21 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UserProfileComponent implements OnInit {
 
-  profile: Profile[] = []
+  myprofile: MyProfile[] = []
   username!: User
 
   constructor(private exService : ExerciseService, private tokenSvc:TokenStorageService, private ActivatedRoute: ActivatedRoute) { }
 
-  ngOnInit(): void {
+   ngOnInit(): void {
+
     this.exService.getSecureProfile()
     .subscribe(data => {
-      this.profile = data
+      this.myprofile = data;
     })
 
-
-    /*this.username = this.ActivatedRoute.snapshot.params['username']
-    this.exService.getSecureProfile()
+/*     ngOnInit(): void {
+    this.username = this.ActivatedRoute.snapshot.params['username']
+    this.exService.getSecureProfile(this.username)
     .subscribe({
       next: (data) => {
         this.profile = data;

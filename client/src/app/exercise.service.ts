@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { lastValueFrom, Observable } from "rxjs";
-import { Exercise, Exercises, Message, newUser, Profile, User } from "./models";
+import { Exercise, Exercises, Message, MyProfile, newUser, Profile, selectedExercise, User } from "./models";
 
 
 @Injectable()
@@ -49,13 +49,19 @@ import { Exercise, Exercises, Message, newUser, Profile, User } from "./models";
       return this.http.post<any>(`http://localhost:8080/api/authenticate`, user);
     }
 
-    getSecureProfile() {
-      console.log("getting secure profile")
-      return this.http.get<Profile[]>(`http://localhost:8080/api/profile`);
+     getSecureProfile() {
+      //console.log("getting secure profile")
+      return this.http.get<MyProfile[]>(`http://localhost:8080/api/profile`);
     }
 
-   /*  getSecureProfile(username: any) {
-      return this.http.get<Profile[]>(`http://localhost:8080/secure/api/profile/${username}`);
+    addToUserProfile(selectedex : any) {
+      console.log("selected exercise to parse to backend >>>" + JSON.stringify(selectedex))
+      return this.http.post<Profile[]>(`http://localhost:8080/api/profileadd`, selectedex);
+
+    }
+
+/*      getSecureProfile(username: any) {
+      return this.http.get<Profile[]>(`http://localhost:8080/api/profile/${username}`);
     } */
 
     /* searchExercise(input: string): Promise<Exercises[]> {

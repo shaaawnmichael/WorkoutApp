@@ -53,11 +53,10 @@
       </tr>
       </thead>
       <tbody>
-      <tr  *ngFor="let e of profile; index as i" [routerLink]="['exercise',e.id]">
+      <tr  *ngFor="let e of myprofile; index as i" [routerLink]="['exercise',e.exercise_name]">
         <th scope="row">{{ i + 1 }}</th>
         <td>
-          <img src="{{ e.gifUrl }}" class="mr-2" style="width: 30px">
-          {{ e.name }}
+          {{ e.exercise_name }}
         </td>
       </tr>
       </tbody>

@@ -41,6 +41,15 @@ public interface SQLs {
 	public static final String SQL_GET_ALL_PROFILES =
 			"select * from users_profile";
 
+	public static final String SQL_ADD_EXERCISE_TO_PROFILE =
+			"INSERT INTO users_profile (username, exercise_name) VALUES (?,?)";
+
+	public static final String SQL_GET_USER_PROFILE_EXERCISES =
+			"Select exercise_name from users_profile where username = ?";
+
+	public static final String SQL_ALL_USER_PROFILE_EXERCISES =
+			"Select * from users_profile";
+
 /* 	public static final String SQL_CREATE_USER_PROFILE = 
 				  "create table if not exists " + username + " (\n"
 				+ "body_part varchar(64) not null,\n"
@@ -56,5 +65,6 @@ public interface SQLs {
 				+ "ON DELETE CASCADE \n"
 				+ "ON UPDATE RESTRICT\n"
 			+ ");"; */
+	
 
 }

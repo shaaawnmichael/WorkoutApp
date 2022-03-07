@@ -39,14 +39,14 @@ export class DetailComponent implements OnInit {
   }
 
   addToCart(ex : Exercise){
-
-
-
     const selectedex : selectedExercise = {
       username : this.tokenSvc.getUser(),
       name : ex.name
     }
     console.log(selectedex)
-
+    this.exSvc.addToUserProfile(selectedex)
+       .subscribe(response=>{
+         console.log(response)
+       })
   }
 }

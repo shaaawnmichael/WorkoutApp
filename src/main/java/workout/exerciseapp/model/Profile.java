@@ -2,6 +2,8 @@ package workout.exerciseapp.model;
 
 import java.io.ByteArrayInputStream;
 
+import org.springframework.jdbc.support.rowset.SqlRowSet;
+
 import jakarta.json.Json;
 import jakarta.json.JsonObject;
 import jakarta.json.JsonReader;
@@ -102,19 +104,16 @@ public class Profile {
 		return ea;
 	}
 
+    public Profile populate(SqlRowSet rs, Profile profile) {
+		profile.setUsername(rs.getString("username"));
+		return profile;
+	}
 
-
-
-    /* public JsonObject toJson() {
+     public JsonObject toJson() {
         return Json.createObjectBuilder()
             .add("username", username)
-            .add("body_part", body_part)
-            .add("equipment", equipment)
-            .add("gif_url", gif_url)
-            .add("exercise_name", exercise_name)
-            .add("exercise_target", exercise_target)
             .build();
-    } */
+    } 
     
 } 
 

@@ -66,3 +66,8 @@ export interface selectedExercise{
   username: string
   name: string;
 }
+
+export interface MyProfile {
+  username: string
+  exercise_name: string
+}
