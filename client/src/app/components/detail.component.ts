@@ -1,7 +1,9 @@
+import { ExternalExpr } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ExerciseService } from '../exercise.service';
-import { Exercise, Exercises, User } from '../models';
+import { Exercise, Exercises, selectedExercise, User } from '../models';
+import { TokenStorageService } from '../_services/token-storage.service';
 
 @Component({
   selector: 'app-detail',
@@ -11,11 +13,11 @@ import { Exercise, Exercises, User } from '../models';
 export class DetailComponent implements OnInit {
 
   exercise: Exercise[] = []
-  exercises: Exercises[] = []
+  exercises!: Exercises[]
   id: any
   username!: User
 
-  constructor(private exSvc : ExerciseService, private router: Router, private ActivatedRoute: ActivatedRoute) { }
+  constructor(private exSvc : ExerciseService, private router: Router, private ActivatedRoute: ActivatedRoute, private tokenSvc : TokenStorageService) { }
 
   ngOnInit(): void {
     this.id = this.ActivatedRoute.snapshot.params['id']
@@ -36,4 +38,15 @@ export class DetailComponent implements OnInit {
     this.router.navigate(['/'])
   }
 
+  addToCart(ex : Exercise){
+
+
+
+    const selectedex : selectedExercise = {
+      username : this.tokenSvc.getUser(),
+      name : ex.name
+    }
+    console.log(selectedex)
+
+  }
 }

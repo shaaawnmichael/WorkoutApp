@@ -62,3 +62,7 @@ export interface Profile extends Exercise{
 
 }
 
+export interface selectedExercise{
+  username: string
+  name: string;
+}

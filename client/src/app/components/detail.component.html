@@ -43,7 +43,7 @@
     </div>
   </nav>
 
-  <div *ngFor="let exercise of exercise">
+  <div *ngFor="let exercise of exercise; index as i">
     <figure class="text-center">
       <h1 class="display-2">{{exercise.name}}</h1>
 
@@ -62,7 +62,7 @@
       Body part: {{exercise.bodyPart}}
     </div>
 
-    <button type="button" class="btn btn-primary" [routerLink]="['']">Add to personal workout</button> <br>
+    <button type="button" class="btn btn-primary" (click)="addToCart(exercise)">Add to personal workout</button> <br>
 
   </figure>
   </div>
